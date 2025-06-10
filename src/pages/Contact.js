@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import NavBar from '../components/Navbar/NavBar';
 import Footer from '../components/Footer';
-import {useDocTitle} from '../components/CustomHook';
 import axios from 'axios';
 // import emailjs from 'emailjs-com';
 import Notiflix from 'notiflix';
 
 const Contact = () => {
-    useDocTitle('MLD | Molad e Konsult - Send us a message')
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
@@ -77,6 +76,10 @@ const Contact = () => {
     }
     return (
         <>
+            <Helmet>
+                <title>Ants Booking | Contact</title>
+                <meta name="description" content="Book your appointments with Ants Booking - fast, simple, reliable." />
+            </Helmet>
             <div>
                 <NavBar />
             </div>

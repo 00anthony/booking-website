@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import AOS from 'aos';
 import "aos/dist/aos.css";
 import './index.css';
@@ -11,8 +12,8 @@ import {
 import Home from './pages/Home';
 import Contact from './pages/Contact';
 import DemoProduct from './pages/DemoProduct';
+import Portfolio from './pages/Portfolio';
 
-import {useDocTitle} from './components/CustomHook';
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
@@ -30,16 +31,20 @@ function App() {
     });
   }, []);
 
-  useDocTitle("MLD | Molad e Konsult - Bespoke Web and Mobile Applications");
 
   return (
     <>
+      <Helmet>
+        <title>Ants Booking</title>
+        <meta name="description" content="Book your appointments with Ants Booking - fast, simple, reliable." />
+      </Helmet>
       <Router>
         <ScrollToTop>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/get-demo" element={<DemoProduct />} /> 
+            <Route path="/portfolio" element={<Portfolio />} />
           </Routes>
         </ScrollToTop>
       </Router>

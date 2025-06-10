@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import NavBar from '../components/Navbar/NavBar';
 import Footer from '../components/Footer';
-import {useDocTitle} from '../components/CustomHook';
 import axios from 'axios';
 // import emailjs from 'emailjs-com';
 import Notiflix from 'notiflix';
 
 const DemoProduct = (props) => {
-
-    useDocTitle('MLD | Molad e Konsult - Demo our products')
 
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
@@ -112,6 +110,10 @@ const DemoProduct = (props) => {
     }
     return (
         <>
+            <Helmet>
+                <title>Ants Booking | Demo</title>
+                <meta name="description" content="Book your appointments with Ants Booking - fast, simple, reliable." />
+            </Helmet>
             <div>
                 <NavBar />
             </div>

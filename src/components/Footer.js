@@ -15,11 +15,17 @@ const Footer = () => {
                     <div className="col-span-12 lg:col-span-4">
                         <div className="box-border border-b-4 border-blue-900 p-8 bg-gray-200 text-gray-600 text-center rounded-lg xl:w-80 mx-auto">
                             <h3 className="font-bold text-4xl mb-4">MLD</h3>
-                            <div className='text-md font-medium text-gray-600'>
-                                <h5>Molad e Konsult</h5>
-                                <p>Ilo Awela,</p>
-                                <p>Ota,</p>
-                                <p>Ogun State.</p>
+                            <div className="text-md font-medium text-gray-600">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11613.137525938486!2d-97.8096694883734!3d30.07681356490364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865b537568a56449%3A0xd855484c493dcb99!2sSunfield%20Sunbright%20Activity%20Center!5e0!3m2!1sen!2sus!4v1749763348160!5m2!1sen!2sus"
+                                    width="100%"
+                                    height="300"
+                                    style={{ border: 0 }}
+                                    allowFullScreen
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                    title="Google Map"
+                                />
                             </div>
                         </div>
                     </div>

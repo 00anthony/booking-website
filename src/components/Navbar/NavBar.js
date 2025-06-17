@@ -20,10 +20,10 @@ const NavBar = () => {
     }, [top]);
 
     return (
-        <nav className={`fixed top-0 w-full z-30 transition duration-300 ease-in-out mb-16 ${!top && 'bg-white shadow-lg'}`}>
+        <nav className={`fixed top-0 w-full z-30 transition duration-300 ease-in-out mb-16 ${!top && 'bg-black/60 shadow-lg'}`}>
             <div className="max-w-7xl mx-auto flex flex-row justify-between items-center px-4 py-2">
                 <div className="flex flex-row justify-center md:px-12 md:mx-12 items-center text-center font-semibold">
-                    <HashLink smooth to="/#hero"><h1 className="font-extrabold text-4xl text-blue-900">ant</h1></HashLink>
+                    <HashLink smooth to="/#hero"><h1 className="font-extrabold text-4xl text-white">ant</h1></HashLink>
                 </div>
                     <button className="p-2 rounded-lg lg:hidden text-blue-900" onClick={handleClick}>
                         <svg className="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

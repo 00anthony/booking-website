@@ -1,9 +1,13 @@
 {
-  "name": "mld",
+  "name": "ant",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mld.ng/",
+  "homepage": "https://ant.ng/",
   "dependencies": {
+    "@react-three/drei": "^9.56.8",
+    "@react-three/fiber": "^8.13.7",
+    "@splinetool/react-spline": "^4.0.0",
+    "@splinetool/runtime": "^1.10.11",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
@@ -19,6 +23,7 @@
     "react-router-hash-link": "^2.4.3",
     "react-scripts": "5.0.0",
     "react-transition-group": "^4.4.2",
+    "three": "^0.152.2",
     "web-vitals": "^2.1.2"
   },
   "scripts": {

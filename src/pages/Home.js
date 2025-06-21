@@ -7,6 +7,7 @@ import Hero from '../components/Hero';
 import Intro from '../components/Intro';
 import Portfolio from '../components/Portfolio';
 import Services from '../components/Services';
+import BarberCard from '../components/BarberCard';
 
 const Home = () => {
 
@@ -18,6 +19,7 @@ const Home = () => {
             </Helmet>
             <Hero />
             <Intro />
+            <BarberCard/>
             <Services />
             <Portfolio />
             <Clients />

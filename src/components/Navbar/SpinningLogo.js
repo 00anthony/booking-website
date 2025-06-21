@@ -1,7 +1,7 @@
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import SVGMesh from '../SVGMesh'; // adjust path as needed
+import SVGMesh from '../SVGMesh'; 
 
 export default function SpinningLogo() {
   return (

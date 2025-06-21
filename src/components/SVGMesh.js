@@ -33,7 +33,7 @@ const SVGMesh = ({ url }) => {
 
 
           const material = new THREE.MeshStandardMaterial({
-            color: '#00ff00', // bright green
+            color: '#c52424', // bright green
             side: THREE.DoubleSide,
             metalness: 0,
             roughness: 1,
@@ -52,10 +52,7 @@ const SVGMesh = ({ url }) => {
       group.scale.set(0.03, 0.03, 0.03);  // Shrink it down
 
       groupRef.current.add(group);
-      const wireframe = new THREE.Mesh(
-        new THREE.BoxGeometry(10, 10, 10),
-        new THREE.MeshBasicMaterial({ color: 'red', wireframe: true })
-      );
+      
     };
 
     loadSVG();

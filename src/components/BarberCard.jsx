@@ -1,0 +1,162 @@
+import { useState } from 'react';
+import { FaInstagram, FaTiktok } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
+
+const BarberCard = ({
+  name = 'Unnamed Barber',
+  profilePic = 'https://via.placeholder.com/300x300',
+  workPics = [],
+  instagram = '#',
+  tiktok = '#',
+  bookLink = '#',
+}) => {
+  const [selectedIdx, setSelectedIdx] = useState(null);
+
+  const showPrev = () => {
+    setSelectedIdx((prev) => (prev > 0 ? prev - 1 : workPics.length - 1));
+  };
+
+  const showNext = () => {
+    setSelectedIdx((prev) => (prev < workPics.length - 1 ? prev + 1 : 0));
+  };
+
+  const isVideo = (src) =>
+    src.endsWith('.mp4') || src.endsWith('.webm') || src.endsWith('.mov');
+
+  return (
+    <>
+      <div className="w-full max-w-sm bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+        {/* Top Half with Image and Gradient Fade */}
+        <div className="relative h-64 w-full">
+          <img
+            src={profilePic}
+            alt={`${name}'s profile`}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white"></div>
+        </div>
+
+        {/* Bottom Content */}
+        <div className="p-6 pt-4 text-center flex flex-col items-center">
+          <h3 className="text-xl font-bold text-red-900 uppercase mb-4">{name}</h3>
+
+          {/* Scrollable Gallery */}
+          <div className="flex overflow-x-auto gap-2 mb-4 w-full scrollbar-hide">
+            {Array.isArray(workPics) &&
+              workPics.map((src, idx) =>
+                isVideo(src) ? (
+                  <video
+                    key={idx}
+                    src={src}
+                    className="h-20 w-28 flex-shrink-0 rounded-lg object-cover cursor-pointer"
+                    muted
+                    loop
+                    playsInline
+                    onClick={() => setSelectedIdx(idx)}
+                  />
+                ) : (
+                  <img
+                    key={idx}
+                    src={src}
+                    alt={`cut ${idx + 1}`}
+                    className="h-20 w-28 flex-shrink-0 object-cover rounded-lg cursor-pointer"
+                    onClick={() => setSelectedIdx(idx)}
+                  />
+                )
+              )}
+          </div>
+
+          {/* Social Links */}
+          <div className="flex justify-center gap-4 text-2xl mb-4">
+            <a
+              href={instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-pink-600 hover:text-pink-700"
+            >
+              <FaInstagram />
+            </a>
+            <a
+              href={tiktok}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-black hover:text-gray-800"
+            >
+              <FaTiktok />
+            </a>
+          </div>
+
+          {/* Book Now Button */}
+          <Link
+            to={bookLink}
+            className="bg-black text-white py-2 px-6 rounded-full hover:bg-gray-800 transition"
+          >
+            Book Now
+          </Link>
+        </div>
+      </div>
+
+      {/* Modal for Image/Video Preview */}
+      <AnimatePresence>
+        {selectedIdx !== null && (
+          <motion.div
+            className="fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedIdx(null)}
+          >
+            <motion.div
+              className="relative max-w-3xl max-h-[90vh] mx-4 w-full"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {isVideo(workPics[selectedIdx]) ? (
+                <video
+                  src={workPics[selectedIdx]}
+                  className="rounded-lg max-h-[90vh] w-full object-contain"
+                  controls
+                  autoPlay
+                />
+              ) : (
+                <img
+                  src={workPics[selectedIdx]}
+                  alt="Work Preview"
+                  className="rounded-lg max-h-[90vh] w-full object-contain"
+                />
+              )}
+
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedIdx(null)}
+                className="absolute top-2 right-2 text-white text-3xl bg-black bg-opacity-60 px-2 rounded-full hover:bg-opacity-90"
+              >
+                ✕
+              </button>
+
+              {/* Prev/Next Navigation */}
+              <button
+                onClick={showPrev}
+                className="absolute left-2 top-1/2 transform -translate-y-1/2 text-white text-3xl bg-black bg-opacity-60 px-3 py-1 rounded-full hover:bg-opacity-90"
+              >
+                ‹
+              </button>
+              <button
+                onClick={showNext}
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-3xl bg-black bg-opacity-60 px-3 py-1 rounded-full hover:bg-opacity-90"
+              >
+                ›
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+};
+
+export default BarberCard;

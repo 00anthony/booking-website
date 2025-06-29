@@ -5,10 +5,9 @@ import Cta from '../components/Cta';
 import Footer from '../components/Footer';
 import Hero from '../components/Hero';
 import Intro from '../components/Intro';
-import Portfolio from '../components/Portfolio';
+import Products from '../components/Products';
 import Services from '../components/Services';
-import BarberGrid from '../components/BarberGrid';
-import SectionHeader from '../components/SectionHeader';
+import BookingSection from '../components/BookingSection';
 
 const Home = () => {
 
@@ -20,16 +19,7 @@ const Home = () => {
             </Helmet>
             <Hero />
             <Intro />
-            <SectionHeader
-                title="Our Barbers"
-                subtitle="Browse the talent. Tap a photo to preview their work."
-                className="bg-gray-500"
-            />
-            <BarberGrid />
-            <Services />
-            <Portfolio />
-            <Clients />
-            <Cta/>
+            <BookingSection />
             <Footer />
         </>
 

@@ -1,5 +1,7 @@
+// src/components/BookingSection.jsx
 import React from 'react';
-import BarberCard from './BarberCard'; 
+import SectionHeader from './SectionHeader';
+import BarberCard from './BarberCard';
 
 const barbers = [
   {
@@ -28,19 +30,27 @@ const barbers = [
   },
 ];
 
-const BarberGrid = () => {
+const BookingSection = () => {
   return (
-    <>
-      <main className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
-          {barbers.map((barber, idx) => (
-            <BarberCard key={idx} {...barber} />
-          ))}
-        </div>
-      </main>
-
-    </>
+    <section 
+      className="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8"
+      id="booking"
+    >
+      <div data-aos="zoom-in" data-aos-delay="500">
+        <SectionHeader
+        title="Booking"
+      />
+      </div>
+      
+      <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto"
+        data-aos="fade-up" data-aos-delay="500"
+      > 
+        {barbers.map((barber, idx) => (
+          <BarberCard key={idx} {...barber} />
+        ))}
+      </div>
+    </section>
   );
 };
 
-export default BarberGrid;
+export default BookingSection;

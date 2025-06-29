@@ -26,21 +26,29 @@ const BarberCard = ({
 
   return (
     <>
-      <div className="w-full max-w-sm bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-        {/* Top Half with Image and Gradient Fade */}
-        <div className="relative h-64 w-full">
-          <img
-            src={profilePic}
-            alt={`${name}'s profile`}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white"></div>
-        </div>
+      <div 
+        className="group relative w-full max-w-sm sm:max-w-md md:max-w-lg h-[450px] sm:h-[500px] md:h-[550px] lg:h-[600px] rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 focus:scale-105 active:scale-105"
+        tabIndex={0}
+      >
+        {/* Full-size Background Image */}
+        <img
+          src={profilePic}
+          alt={`${name}'s profile`}
+          className="w-full h-full object-cover absolute inset-0 z-0"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white opacity-90 group-hover:opacity-60 group-focus:opacity-60 group-active:opacity-60 transition-opacity duration-300"></div>
+        <motion.h3
+          className="absolute top-4 left-1/2 transform -translate-x-1/2 text-white text-lg md:text-xl drop-shadow-md text-center z-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 1.0 }}
+          transition={{ delay: 0.5, duration: 0.6, ease: 'easeOut' }}
+        >
+          {name}
+        </motion.h3>
 
-        {/* Bottom Content */}
-        <div className="p-6 pt-4 text-center flex flex-col items-center">
-          <h3 className="text-xl font-bold text-red-900 uppercase mb-4">{name}</h3>
-
+        {/* Bottom Overlay Content */}
+        <div className="absolute bottom-0 z-10 w-full px-4 pb-4 pt-24 text-center flex flex-col items-center bg-gradient-to-t from-white/80 ">
           {/* Scrollable Gallery */}
           <div className="flex overflow-x-auto gap-2 mb-4 w-full scrollbar-hide">
             {Array.isArray(workPics) &&
@@ -121,6 +129,7 @@ const BarberCard = ({
                   className="rounded-lg max-h-[90vh] w-full object-contain"
                   controls
                   autoPlay
+                  muted
                 />
               ) : (
                 <img

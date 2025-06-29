@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 const Cta = () => {
     return ( 
-        <div className="w-full flex items-center justify-center text-white cta">
+        <div className="bg-black w-full flex items-center justify-center text-white cta">
             <div className="mx-8 w-full h-96 text-center lg:text-left py-16 px-12 flex lg:justify-between items-center">                    
                 <div className="w-full flex flex-col lg:flex-row lg:justify-around">
                     <div className="mb-4">

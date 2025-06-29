@@ -89,21 +89,25 @@ const Hero = () => {
                     </svg>
                     {/*Choose Button */}
                     <HashLink 
-                        smooth to="/#about" 
-                        className="relative z-10 font-gotisch text-white bg-red-900 hover:bg-red-800 inline-flex items-center justify-center px-6 py-2 -mt-12 md:-mt-28 md:text-2xl text-lg shadow-xl rounded-2xl sm:w-auto sm:mb-0 group">
+                        smooth 
+                        to="/#booking"
+                        className="relative z-10 font-gotisch text-white bg-red-900/50 backdrop-blur-sm hover:drop-shadow-glow hover:bg-red-900 inline-flex items-center justify-center px-6 py-2 -mt-12 md:-mt-28 md:text-2xl text-lg shadow-xl rounded-2xl sm:w-auto sm:mb-0 group transition duration-300 ease-in-out"
+                        >
                         book haircut
                         <svg 
-                            className="w-4 h-4 ml-1 group-hover: translate-x-2"
+                            className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-2"
                             xmlns="http://www.w3.org/2000/svg" 
                             viewBox="0 0 20 20" 
-                            fill="currentColor">
+                            fill="currentColor"
+                        >
                             <path 
-                                fillRule="evenodd" 
-                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" 
-                                clipRule="evenodd">
-                            </path>
+                            fillRule="evenodd" 
+                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" 
+                            clipRule="evenodd" 
+                            />
                         </svg>
                     </HashLink>
+                    
                     {/*<WaxButton/>*/}
                 </section>                   
             </div>
